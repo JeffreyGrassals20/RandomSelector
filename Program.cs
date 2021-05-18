@@ -66,27 +66,48 @@ namespace RandomSelector
         public void Printer(int counter){
 
             List<string> Finallist = new List<string>{}; 
-            int c = RandomStudents.Count/counter - 1;
-            int con = 0;
+            int c = RandomStudents.Count - counter;
+            int y=0;
+            //int con = 0;
            
-            for(int y = 0; y < RandomNumbers.Count; y++)
+            /*for(int y = 0; y < RandomNumbers.Count; y++)
             {
                 Console.WriteLine("Grupo: " + RandomNumbers[y]);
 
-                for(int i = 0; i < StudentsList.Count; i++)
+                for(int i = con; i < StudentsList.Count; i++)
                 {
                     
                   Console.WriteLine(RandomStudents[i]);
                    con++;
-                   if(i == c){
+                   if(i % c == 2){
                         Console.WriteLine();
-                        break;
+                       break;
                    }
-                   i = con - 1;
-
+                    i = con - 1;
                 }
+            }*/
+
+            for(int i = 0; i < RandomStudents.Count; i++){
+                
+                if(y < RandomNumbers.Count)
+                {
+                    Console.WriteLine(RandomStudents[i] +" Grupo: "+RandomNumbers[y]);
+                    y++;
+                }else{
+                    y = 0;
+                }
+                
             }
+           
                
+        }
+
+        public void Grupos(){
+            for(int i = 0; i < RandomNumbers.Count; i++)
+            {
+                if(i < 4)
+                 Console.Write(RandomNumbers[i]);
+            }
         }
 
 
